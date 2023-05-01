@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Palindrome Checker</title>
+  <!-- <link rel="shortcut icon" href="favicon.ico"> -->
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>Enter a word below to check if it is a palindrome</h1>
+
+
+  <form action="/palindromeInQuestion" method="POST">
+    <input name="word" class="input" type="text" placeholder="Kayak">
+    <input class="button" type="submit" value="Sumbit">
+  </form>
+
+  <h3 id="correctResult"></h3>
+  <h3 id="wrongResult"></h3>
+
+  <h3>Is it a palindrome?</h3>
+  <ul class="palindromes">
+    <% for(var i=0; i<palindromes.length; i++) {%>
+      <% let color=palindromes[i].answer===true ? 'green' : 'red' %>
+        <li class="message">
+          <span id="<%= color %>">
+            <%= palindromes[i].word %>
+          </span>
+          <span>
+            <%= palindromes[i].answer %>
+          </span>
+          <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+        </li>
+        <% } %>
+  </ul>
+
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
